@@ -1,42 +1,18 @@
 # Database Optimizations
 
-## Description
+## Results
 
-Given an existing application which generates a report from a large data set, improve the efficiency of the report using database optimization methods.
-
-## Objectives
-
-After completing this assignment, you should...
-
-* Understand the downsides of loops within loops in Rails.
-* Understand the benefits and appropriate use of indices on database tables.
-* Understand the downside of indices.
-* Be able to measure the runtime of various webapp functions.
-* Be able to query the database more efficiently.
-* Be able to implement database indices.
-
-## Deliverables
-
-* **An estimate.**  After you read through this assignment (but before you start coding), write down a number of hours that you expect each part to take (1-3).  Record your hours as you go.
-* **A repository.** You will be working from the existing application found in this repository, but you will make your own copy.
-* **A README.** The README should include data on all of the metrics requested below.
-* **A test suite.** Build your application using TDD.  Your test suite must include unit tests, controller tests, and at least two integration tests.
-* **A reflection on your estimate.**
 
 ## Normal Mode
 
-For this project, you will be starting with an application which runs very slowly.  This ineffiency is due partly to the sheer amount of data present, but mostly due to the structure of the code and the database.  Your task is to make it run in a reasonable amount of time.
+* Running `rake db:seed` without indices: 1392.24 s
+* Load index page without indices: 420000ms
+* Running migration to add indices: 2.54 s
+* Load index page with indices:
+* Percent improvement in runtime after indices: 500% (pretty sure I might have done my recording incorrectly)
 
-Once you pull down the application from GitHub, run `bundle install` and `rake db:migrate`, then follow the steps below.
 
-* Run `rake db:seed`, but time it.  Record the amount of time it takes for the seeds to run.
-* Turn on your server and open your browser.
-* Open Chrome's timeline in developer tools, then go to `localhost:3000`.
-* Determine how long it takes the index page to load.  Record that time.
-* Add appropriate indices to the data structure (via migrations).
-* Record how long it takes to run the migrations that add indices.
-* Use Chrome's developer tools to determine how long it takes the index page to load.  Record that time.
-* Calculate your percent improvement in runtime.
+
 * Examine the code that is run when the root path loads.  Modify the commands which access the database to make them more efficient.
 * Calculate your percent improvement in runtime.
 * Once you have optimized your code as much as you think you can, drop the database, run `rake db:migrate`, and then time how long it takes to run `rake db:seed`.  Was there an improvement or a worsening of runtime?  By what percent and why?
