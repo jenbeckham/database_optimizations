@@ -1,7 +1,7 @@
 class ReportMailer < ApplicationMailer
 
-  def report (email, assembly_name)
-    @assembly = Assembly.find_by_name(assembly_name)
+  def report (name, email)
+    @assembly = Assembly.find_by_name(name: name)
     @hits = Hit.where(
     subject_id: Gene.where(
     sequence_id: Sequence.where(
