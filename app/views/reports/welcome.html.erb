@@ -3,8 +3,8 @@
 
 <%= form_tag reports_all_data_path do %>
   <%= text_field_tag 'Email', nil, placeholder: "Email" %>
-  <%= hidden_field_tag :name, value: params[:name] %>
+  <%= hidden_field_tag :name, params[:name] %>
 
-  <%= submit_tag %>
+  <%= submit_tag "Submit" %>
 
 <% end %>
