@@ -1,8 +1,8 @@
 class ReportsController < ApplicationController
   def all_data
-    @email = params[:email]
+    # @email = params[:email]
     # @name = params[:name]
-    ReportsMakerJob.perform_later(params[:name], @email)
+    ReportsMakerJob.perform_later(params[:name], params[:email])
     # ReportMailer.report(@email).deliver_later
     # @hits = Hit.where(
     # subject_id: Gene.where(

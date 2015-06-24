@@ -2,7 +2,7 @@
 <p>To recieve your report, please enter email.</p>
 
 <%= form_tag reports_all_data_path do %>
-  <%= text_field_tag 'Email', nil, placeholder: "Email" %>
+  <%= text_field_tag :email, params[:email] %>
   <%= hidden_field_tag :name, params[:name] %>
 
   <%= submit_tag "Submit" %>
