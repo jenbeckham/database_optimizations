@@ -7,7 +7,7 @@ class ReportMailer < ApplicationMailer
     sequence_id: Sequence.where(
     assembly_id: Assembly.where(
     name: params[:name]))).order(percent_similarity: :desc)
-
+    
     mail to: email
   end
 end
